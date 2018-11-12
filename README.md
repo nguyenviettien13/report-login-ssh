@@ -152,7 +152,7 @@ total  auid
 	root@mail:/# mkdir .ssh/; chmod 700 .ssh/; cd .ssh/;
  ```
  ````
-root@mail:/.ssh# touch authorized_keys; chmod 600 authorized_keys
+	root@mail:/.ssh# touch authorized_keys; chmod 600 authorized_keys
  ````
  ```
 	root@mail:/.ssh# ls -ltra
@@ -167,7 +167,6 @@ root@mail:/.ssh# touch authorized_keys; chmod 600 authorized_keys
 	root@mail:/.ssh# nano /etc/ssh/sshd_config
 		RSAAuthentication yes
 		PubkeyAuthentication yes
-		<br>
 		ChallengeResponseAuthentication no
 		PasswordAuthentication no
 		UsePAM no
