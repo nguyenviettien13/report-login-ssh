@@ -147,7 +147,34 @@ total  auid
  cat /var/log/secure | grep "Invalid user" | awk '{print $8}'
 ```
 
-
+### 3. advanced configure, su dung key
+ ```
+	root@mail:/# mkdir .ssh/; chmod 700 .ssh/; cd .ssh/;
+ ```
+ ````
+root@mail:/.ssh# touch authorized_keys; chmod 600 authorized_keys
+ ````
+ ```
+	root@mail:/.ssh# ls -ltra
+ ```
+ ````
+	ssh-keygen -t rsa
+ ````
+ ```
+	root@mail:/.ssh# cat id_rsa.pub >> authorized_keys
+ ```
+ ````
+	root@mail:/.ssh# nano /etc/ssh/sshd_config
+		RSAAuthentication yes
+		PubkeyAuthentication yes
+		<br>
+		ChallengeResponseAuthentication no
+		PasswordAuthentication no
+		UsePAM no
+ ````
+ ```
+	root@mail:/.ssh# service ssh restart
+ ```
 ### B.Phòng tránh như thế nào 
 ```sh 
 Đang tìm và viết
